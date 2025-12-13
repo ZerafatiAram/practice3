@@ -1,0 +1,60 @@
+
+:host{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+.login{
+    font-size: 16px;
+    width: 300px;
+    background-color: rgba(151, 177, 224, 0.499);
+    border-radius: 2em;
+    backdrop-filter: blur(2.0em);
+    padding: 1.3em;
+    color: rgb(70, 68, 68);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    div{
+        margin: 0.5em 0;
+        padding: 0.4em;
+        input[type=text],input[type=password]{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.5em;
+        border-radius: 0.4em;
+        border: none;
+        }
+        input:focus{
+            outline-color: rgb(122, 183, 213);
+            background-color: aliceblue;
+        }
+    }
+    label:not(:last-child){
+        display: block;
+        padding: 0.3em;
+    }
+    button{
+        width: 100%;
+        background-color: cadetblue;
+        color: rgb(255, 255, 255);
+        padding: 0.3em;
+        border: none;
+        border-radius: 0.5em;
+        min-height: 40px;
+    }
+    button[disabled]{
+        border: solid 0.5px;
+        background-color: silver;
+    }
+    button[disabled]:hover{
+       cursor:not-allowed;
+    }
+}
+.massege{
+    background-color: rgb(237, 152, 152);
+    border-radius: 0.4em;
+    padding: 0.5em;
+    font-size: small;
+    text-align: center;
+}
