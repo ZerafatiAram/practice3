@@ -18,6 +18,10 @@ export class LoginPage {
   massege:string='';
   check(){
     if (this.loginform.username=='kosar'&& this.loginform.password=='2390') {
+      sessionStorage.setItem('token','dkmkimjeikdjikmkmkmj8258292');
+      if(this.loginform.keepMe==true){
+         localStorage.setItem('token','dkmkimjeikdjikmkmkmj8258292');
+      }
       this.router.navigateByUrl('/private');
     } else {
       this.massege=' نام کاربری یا پسورد غلط است'

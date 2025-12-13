@@ -1,12 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     margin: 0;
-    font-family: iransans;
     background: #2A7B9B;
     background: linear-gradient(90deg, rgba(42, 123, 155, 0.50) 0%, rgba(87, 199, 133, 0.50) 50%, rgba(137, 83, 237, 0.50) 100%);
 }
-@font-face {
+@font-face{
     font-family: iransans;
-    src: url(../public/fonts/fontiran.ttf);
+    src: url('/fonts/IranianSans.ttf');
+}
+*{
+    font-family: iransans;
 }
 
