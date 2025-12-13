@@ -33,7 +33,7 @@ export class BooksPage implements OnInit {
   }
   save() {
     this.bookservice.add(this.item);
-    this.refreshdata;
+    this.refreshdata();
     this.state = 'list';
 
   }

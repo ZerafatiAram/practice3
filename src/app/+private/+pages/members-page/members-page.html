@@ -1,1 +1,65 @@
-<p>members-page works!</p>
+@if (state=='list') {
+<div>
+    <button (click)="add()">افزودن</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>کد کاربر</th>
+            <th>نام </th>
+            <th>نام خانوداگی</th>
+            <th>شماره تماس</th>
+            <th>آدرس</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of data; track $index) {
+        <tr>
+            <td>
+                {{item.id}}
+            </td>
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                {{item.lastname}}
+            </td>
+            <td>
+                {{item.tel}}
+            </td>
+            <td>
+                {{item.address}}
+            </td>
+            <td>
+                <button>ویرایش</button>
+                <button>حذف</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+}
+@else {
+<form (ngSubmit)="save()">
+    <div>
+        <input [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="کد کاربر">
+    </div>
+     <div>
+        <input [(ngModel)]="item.name" id="name" name="name" type="text" placeholder="نام">
+    </div>
+     <div>
+        <input [(ngModel)]="item.lastname" id="lastname" name="lastname" type="text" placeholder="نام خانوداگی">
+    </div>
+     <div>
+        <input [(ngModel)]="item.tel" id="tel" name="tel" type="text" placeholder="شماره تماس">
+    </div>
+     <div>
+        <input [(ngModel)]="item.address" id="address" name="address" type="text" placeholder="آدرس">
+    </div>
+    <div>
+        <button type="submit">تایید</button>
+        <button (click)="cancel()" type="button">انصراف</button>
+    </div>
+</form>
+}

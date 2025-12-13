@@ -17,6 +17,6 @@ export class BooksService {
       return [...this.data]
     }
     add(book:Bookitem) {
-      this.data.push(book)
+      this.data.push(book);
     }
 }
