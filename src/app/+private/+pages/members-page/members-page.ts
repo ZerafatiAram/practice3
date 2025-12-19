@@ -28,6 +28,13 @@ export class MembersPage implements OnInit {
   }
   add() {
     this.state = 'form';
+    this.item = {
+      id: 0,
+      name: '',
+      lastname: '',
+      tel: '',
+      address: '',
+    };
   }
   cancel() {
     this.state = 'list';

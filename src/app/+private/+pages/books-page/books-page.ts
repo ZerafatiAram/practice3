@@ -27,6 +27,13 @@ export class BooksPage implements OnInit {
   }
   add() {
     this.state = 'form';
+    this.item = {
+      id: 0,
+      title: '',
+      writer: '',
+      publisher: '',
+      price: 0
+    };
   }
   cancel() {
     this.state = 'list';
