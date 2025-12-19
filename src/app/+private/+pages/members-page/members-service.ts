@@ -27,4 +27,7 @@ export class MembersService {
       this.data[index].address = members.address;
     }
   }
+  remove(members: Members) {
+    this.data = this.data.filter(m => m.id != members.id);
+  }
 }

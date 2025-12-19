@@ -41,21 +41,26 @@
 </table>
 }
 @else {
+     @if(state=='remove'){
+    <div>
+        آیا از حذف این گزینه اطمینان دارید؟
+    </div>
+    }
 <form (ngSubmit)="save()">
     <div>
-        <input [disabled]="state=='edit'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="کد کاربر">
+        <input [disabled]="state=='edit' || state=='remove'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="کد کاربر">
     </div>
     <div>
-        <input [(ngModel)]="item.name" id="name" name="name" type="text" placeholder="نام">
+        <input [disabled]="state=='remove'" [(ngModel)]="item.name" id="name" name="name" type="text" placeholder="نام">
     </div>
     <div>
-        <input [(ngModel)]="item.lastname" id="lastname" name="lastname" type="text" placeholder="نام خانوداگی">
+        <input [disabled]="state=='remove'" [(ngModel)]="item.lastname" id="lastname" name="lastname" type="text" placeholder="نام خانوداگی">
     </div>
     <div>
-        <input [(ngModel)]="item.tel" id="tel" name="tel" type="text" placeholder="شماره تماس">
+        <input [disabled]="state=='remove'" [(ngModel)]="item.tel" id="tel" name="tel" type="text" placeholder="شماره تماس">
     </div>
     <div>
-        <input [(ngModel)]="item.address" id="address" name="address" type="text" placeholder="آدرس">
+        <input [disabled]="state=='remove'" [(ngModel)]="item.address" id="address" name="address" type="text" placeholder="آدرس">
     </div>
     <div>
         <button type="submit">تایید</button>

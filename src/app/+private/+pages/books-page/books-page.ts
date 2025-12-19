@@ -49,14 +49,15 @@ export class BooksPage implements OnInit {
   save() {
     if (this.state == 'form') {
       this.bookservice.add(this.item);
-      this.refreshdata();
-      this.state = 'list';
     }
     else if (this.state == 'edit') {
       this.bookservice.update(this.item);
-      this.refreshdata();
-      this.state = 'list';
     }
+    else if (this.state == 'remove') {
+      this.bookservice.remove(this.item);
+    }
+    this.refreshdata();
+    this.state = 'list';
 
   }
 }

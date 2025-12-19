@@ -54,6 +54,9 @@ export class MembersPage implements OnInit {
     else if (this.state == 'edit') {
       this.membersService.update(this.item);
     }
+    else if (this.state == 'remove') {
+      this.membersService.remove(this.item);
+    }
     this.refreshdata();
     this.state = 'list';
   }
