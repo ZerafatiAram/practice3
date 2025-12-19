@@ -36,11 +36,24 @@ export class MembersPage implements OnInit {
       address: '',
     };
   }
+  edit(item: Members) {
+    this.item = { ...item };
+    this.state = 'edit';
+  }
+  remove(item: Members) {
+    this.item = { ...item };
+    this.state = 'remove';
+  }
   cancel() {
     this.state = 'list';
   }
   save() {
-    this.membersService.add(this.item);
+    if (this.state == 'form') {
+      this.membersService.add(this.item);
+    }
+    else if (this.state == 'edit') {
+      this.membersService.update(this.item);
+    }
     this.refreshdata();
     this.state = 'list';
   }

@@ -32,29 +32,29 @@
                 {{item.address}}
             </td>
             <td>
-                <button>ویرایش</button>
-                <button>حذف</button>
+                <button (click)="edit(item)">ویرایش</button>
+                <button (click)="remove(item)">حذف</button>
             </td>
         </tr>
-    }
+        }
     </tbody>
 </table>
 }
 @else {
 <form (ngSubmit)="save()">
     <div>
-        <input [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="کد کاربر">
+        <input [disabled]="state=='edit'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="کد کاربر">
     </div>
-     <div>
+    <div>
         <input [(ngModel)]="item.name" id="name" name="name" type="text" placeholder="نام">
     </div>
-     <div>
+    <div>
         <input [(ngModel)]="item.lastname" id="lastname" name="lastname" type="text" placeholder="نام خانوداگی">
     </div>
-     <div>
+    <div>
         <input [(ngModel)]="item.tel" id="tel" name="tel" type="text" placeholder="شماره تماس">
     </div>
-     <div>
+    <div>
         <input [(ngModel)]="item.address" id="address" name="address" type="text" placeholder="آدرس">
     </div>
     <div>

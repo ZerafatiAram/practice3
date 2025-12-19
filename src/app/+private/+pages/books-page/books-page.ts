@@ -35,13 +35,28 @@ export class BooksPage implements OnInit {
       price: 0
     };
   }
+  edit(item: Bookitem) {
+    this.state = 'edit';
+    this.item = { ...item };
+  }
+  remove(item: Bookitem) {
+    this.item = { ...item };
+    this.state = 'remove';
+  }
   cancel() {
     this.state = 'list';
   }
   save() {
-    this.bookservice.add(this.item);
-    this.refreshdata();
-    this.state = 'list';
+    if (this.state == 'form') {
+      this.bookservice.add(this.item);
+      this.refreshdata();
+      this.state = 'list';
+    }
+    else if (this.state == 'edit') {
+      this.bookservice.update(this.item);
+      this.refreshdata();
+      this.state = 'list';
+    }
 
   }
 }
