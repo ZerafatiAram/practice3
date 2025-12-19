@@ -28,7 +28,8 @@ export class BooksService {
       this.data[index].price = book.price;
     }
   }
-  remove(book:Bookitem){
-    this.data=this.data.filter(m=>m.id!=book.id);
+  remove(book: Bookitem) {
+    this.data = this.data.filter(m => m.id != book.id);
   }
+  //CRUD
 }

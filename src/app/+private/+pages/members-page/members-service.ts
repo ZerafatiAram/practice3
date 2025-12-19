@@ -30,4 +30,5 @@ export class MembersService {
   remove(members: Members) {
     this.data = this.data.filter(m => m.id != members.id);
   }
+  //CRUD
 }
