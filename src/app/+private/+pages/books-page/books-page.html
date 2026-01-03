@@ -1,3 +1,10 @@
+<my-crud [mystate]="state"
+(onAdd)="add()"
+(onCancel)="cancel()"
+>
+
+</my-crud>
+<hr>
 @if (state=='list') {
 <div>
     <button (click)="add()">افزودن</button>

@@ -1,0 +1,56 @@
+@if (mystate=='list') {
+<div>
+    <button (click)="onAdd.emit">افزودن</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>کد کاربر</th>
+            <th>نام </th>
+            <th>نام خانوداگی</th>
+            <th>شماره تماس</th>
+            <th>آدرس</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- @for (item of data; track $index) {
+        <tr>
+            <td>
+                {{item.id}}
+            </td>
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                {{item.lastname}}
+            </td>
+            <td>
+                {{item.tel}}
+            </td>
+            <td>
+                {{item.address}}
+            </td>
+            <td>
+                <button (click)="edit(item)">ویرایش</button>
+                <button (click)="remove(item)">حذف</button>
+            </td>
+        </tr>
+        } -->
+    </tbody>
+</table>
+}
+@else {
+     @if(mystate=='remove'){
+    <div>
+        آیا از حذف این گزینه اطمینان دارید؟
+    </div>
+    }
+<form>
+    
+    <div>
+        <button type="submit">تایید</button>
+        <button (click)="onCancel.emit" type="button">انصراف</button>
+    </div>
+</form>
+}
