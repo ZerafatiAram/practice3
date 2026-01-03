@@ -1,42 +1,30 @@
 @if (mystate=='list') {
 <div>
-    <button (click)="onAdd.emit">افزودن</button>
+    <button (click)="onAdd.emit()">افزودن</button>
 </div>
 <table>
     <thead>
         <tr>
-            <th>کد کاربر</th>
-            <th>نام </th>
-            <th>نام خانوداگی</th>
-            <th>شماره تماس</th>
-            <th>آدرس</th>
+            @for (col of columns; track $index) {
+                <th>{{col.title}}</th>
+            }
             <th> </th>
         </tr>
     </thead>
     <tbody>
-        <!-- @for (item of data; track $index) {
+        @for (item of data; track $index) {
         <tr>
+            @for (col of columns; track $index) {
             <td>
-                {{item.id}}
+                {{item[col.field]}}
             </td>
+            }
             <td>
-                {{item.name}}
-            </td>
-            <td>
-                {{item.lastname}}
-            </td>
-            <td>
-                {{item.tel}}
-            </td>
-            <td>
-                {{item.address}}
-            </td>
-            <td>
-                <button (click)="edit(item)">ویرایش</button>
-                <button (click)="remove(item)">حذف</button>
+                <button (click)="onEdit.emit(item)">ویرایش</button>
+                <button (click)="onRemove.emit(item)">حذف</button>
             </td>
         </tr>
-        } -->
+        }
     </tbody>
 </table>
 }
@@ -46,11 +34,11 @@
         آیا از حذف این گزینه اطمینان دارید؟
     </div>
     }
-<form>
-    
+<form (ngSubmit)="onSave.emit()">
+    <ng-content></ng-content>
     <div>
         <button type="submit">تایید</button>
-        <button (click)="onCancel.emit" type="button">انصراف</button>
+        <button (click)="onCancel.emit()" type="button">انصراف</button>
     </div>
 </form>
 }

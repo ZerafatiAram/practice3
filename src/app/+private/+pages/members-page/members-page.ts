@@ -3,7 +3,7 @@ import { MembersService } from './members-service';
 import { FormsModule } from '@angular/forms';
 import { Thing } from '../../../+shared/+base/base-thing';
 import { BaseCRUDPage } from '../../../+shared/+base/base-page';
-import { BaseCRUDComponent } from "../../../+shared/+base/base-crudcomponent/base-crudcomponent";
+import { BaseCRUDComponent, Column } from "../../../+shared/+base/base-crudcomponent/base-crudcomponent";
 
 @Component({
   selector: 'app-members-page',
@@ -14,6 +14,12 @@ import { BaseCRUDComponent } from "../../../+shared/+base/base-crudcomponent/bas
 export class MembersPage extends BaseCRUDPage<Members> implements OnInit {
   ngOnInit(): void {
     this.refreshdata();
+    this.item={
+    name:'',
+    lastname:'',
+    tel:'',
+    address:''
+    }
   }
   override dataService = inject(MembersService);
   
@@ -25,6 +31,13 @@ export class MembersPage extends BaseCRUDPage<Members> implements OnInit {
       address:''
     };
   }
+    columns:Column[]=[
+      {field:'id',title:'شناسه'},
+      {field:'name',title:'نام'},
+      {field:'lastname',title:'نام خانوادگی'},
+      {field:'tel',title:'تلفن'},
+      {field:'address',title:'آدرس'}
+    ];
 }
 export interface Members extends Thing {
   name: string;

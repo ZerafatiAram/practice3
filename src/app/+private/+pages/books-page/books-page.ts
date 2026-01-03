@@ -3,7 +3,7 @@ import { BooksService } from './books-service';
 import { FormsModule } from '@angular/forms';
 import { Thing } from '../../../+shared/+base/base-thing';
 import { BaseCRUDPage } from '../../../+shared/+base/base-page';
-import { BaseCRUDComponent } from "../../../+shared/+base/base-crudcomponent/base-crudcomponent";
+import { BaseCRUDComponent, Column } from "../../../+shared/+base/base-crudcomponent/base-crudcomponent";
 
 @Component({
   selector: 'app-books-page',
@@ -14,6 +14,11 @@ import { BaseCRUDComponent } from "../../../+shared/+base/base-crudcomponent/bas
 export class BooksPage extends BaseCRUDPage<Bookitem> implements OnInit {
   ngOnInit(): void {
     this.refreshdata();
+    this.item={
+    publisher:'',    
+    title:'',
+    writer:''
+    }
   }
   override dataService = inject(BooksService);
 
@@ -24,6 +29,13 @@ export class BooksPage extends BaseCRUDPage<Bookitem> implements OnInit {
       writer:''
     };
   }
+  columns:Column[]=[
+    {field:'id',title:'شناسه'},
+    {field:'title',title:'عنوان'},
+    {field:'writer',title:'نویسنده'},
+    {field:'publisher',title:'ناشر'},
+    {field:'price',title:'قیمت'}
+  ];
 }
 export interface Bookitem extends Thing {
   title: string;
