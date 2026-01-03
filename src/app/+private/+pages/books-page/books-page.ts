@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { BooksService } from './books-service';
 import { FormsModule } from '@angular/forms';
+import { Thing } from '../../../+shared/+base/base-thing';
 
 @Component({
   selector: 'app-books-page',
@@ -61,8 +62,7 @@ export class BooksPage implements OnInit {
 
   }
 }
-export interface Bookitem {
-  id: number;
+export interface Bookitem extends Thing {
   title: string;
   writer: string;
   publisher: string;
