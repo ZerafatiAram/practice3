@@ -12,5 +12,11 @@ export class MembersService extends BaseCRUDService<Members>{
     { id: 3, name: 'فاطمه', lastname: 'امینی', tel: '09372225454', address: 'استان همدان شهر همدان' },
     { id: 4, name: 'کیمیا', lastname: 'یوسفی', tel: '09372225454', address: 'استان همدان شهر همدان' },
   ];
+  override edit(destination: Members, source: Members): void {
+    destination.name=source.name;
+    destination.lastname=source.lastname;
+    destination.tel=source.tel;
+    destination.address=source.address;
+  }
 
 }
